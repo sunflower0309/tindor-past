@@ -20,14 +20,14 @@ import okhttp3.Response;
 public class StartupActivity extends AppCompatActivity {
 
     public static String TAG = "StartupActivity";
+    String url = "http://192.168.101.12:8000/net_test/good";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup);
 
         OkHttpClient client = new OkHttpClient();
-
-        String url = "http://192.168.101.12:8000/net_test/good";
         Request request = new Request.Builder()
                 .url(url)
                 .build();
