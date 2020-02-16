@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -52,9 +54,16 @@ public class MainActivity extends AppCompatActivity {
         swipeTab = navigationTabs.newTab();
         matchesTab = navigationTabs.newTab();
 
-        profileTab.setIcon(ContextCompat.getDrawable(this, R.drawable.tab_profile));
-        swipeTab.setIcon(ContextCompat.getDrawable(this, R.drawable.tab_swipe));
-        matchesTab.setIcon(ContextCompat.getDrawable(this, R.drawable.tab_matches));
+        ImageView swipeIV = new ImageView(this);
+        swipeIV.setImageResource(R.drawable.tab_swipe);
+        ImageView profileIV = new ImageView(this);
+        profileIV.setImageResource(R.drawable.tab_profile);
+        ImageView matchesIV = new ImageView(this);
+        matchesIV.setImageResource(R.drawable.tab_matches);
+
+        swipeTab.setCustomView(swipeIV);
+        profileTab.setCustomView(profileIV);
+        matchesTab.setCustomView(matchesIV);
 
         navigationTabs.addTab(profileTab);
         navigationTabs.addTab(swipeTab);
@@ -76,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (tab == matchesTab) {
                     if (matchesFragment == null) {
                         matchesFragment = new MatchesFragment();
+                        matchesFragment.fetchData();
                     }
                     replaceFragment(matchesFragment);
                 }
@@ -92,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        swipeTab.select();
 
 //        //add the view via xml or programmatically
 //        SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
@@ -101,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 //        al.add("python");
 //        al.add("java");
 //
-//        arrayAdapter = new ArrayAdapter<String>(this, R.layout.item, R.id.helloText, al );
+//        arrayAdapter = new ArrayAdapter<String>(this, R.layout.item_card, R.id.helloText, al );
 //
 //        //set the listener and the adapter
 //        flingContainer.setAdapter(arrayAdapter);

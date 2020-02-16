@@ -20,7 +20,7 @@ import okhttp3.Response;
 public class StartupActivity extends AppCompatActivity {
 
     public static String TAG = "StartupActivity";
-    String url = "http://192.168.101.12:8000/net_test/good";
+    String url = "http://35.236.111.125/test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class StartupActivity extends AppCompatActivity {
     }
 
     public void onLoginClicked(View view){
-        startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     public void onSignupClicked(View view){
