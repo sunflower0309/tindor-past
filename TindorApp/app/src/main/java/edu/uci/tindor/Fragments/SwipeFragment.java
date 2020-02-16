@@ -151,18 +151,17 @@ public class SwipeFragment extends Fragment {
                         u.age = user_js.getString("age");
                         u.imageUrl = user_js.getString("photo_url");
                         rowItems.add(u);
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                cardsAdapter.notifyDataSetChanged();
+                            }
+                        });
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return;
                 }
-
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        cardsAdapter.notifyDataSetChanged();
-                    }
-                });
             }
         });
 

@@ -18,6 +18,7 @@ import java.util.Calendar;
 
 import edu.uci.tindor.Adapters.MsgAdapter;
 import edu.uci.tindor.DataModel.Message;
+import edu.uci.tindor.Utils.Config;
 
 public class ChatActivity extends AppCompatActivity{
 
@@ -50,7 +51,7 @@ public class ChatActivity extends AppCompatActivity{
         //user.name
         topNameTV.setText("Jing");
         Glide.with(this)
-                .load("http://192.168.101.12/cuties/37480387526_d558fc484b_c.jpg")
+                .load(Config.BASE_URL + "PandaRed.jpg")
                 .into(topPhotoIV);
 
 //        topPhotoIV.setOnClickListener {
