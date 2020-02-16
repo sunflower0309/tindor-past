@@ -26,6 +26,7 @@ import edu.uci.tindor.Adapters.UserCardAdapter;
 import edu.uci.tindor.R;
 import edu.uci.tindor.DataModel.User;
 import edu.uci.tindor.StartupActivity;
+import edu.uci.tindor.Utils.Config;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -112,7 +113,7 @@ public class SwipeFragment extends Fragment {
             populateItems();
     }
 
-    String url = "http://http://35.236.111.125/all_users";
+    String url = Config.BASE_URL + "all_users";
 
     void populateItems() {
 //        LinearLayout noUsersLayout = getActivity().findViewById(R.id.noUsersLayout);
