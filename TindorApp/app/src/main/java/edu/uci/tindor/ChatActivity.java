@@ -28,7 +28,8 @@ public class ChatActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
+        String name = getIntent().getStringExtra("name");
+        String imageUrl = getIntent().getStringExtra("imageUrl");
 //        chatId = intent.extras.getString(PARAM_CHAT_ID)
 //        userId = intent.extras.getString(PARAM_USER_ID)
 //        imageUrl = intent.extras.getString(PARAM_IMAGE_URL)
@@ -38,8 +39,7 @@ public class ChatActivity extends AppCompatActivity{
 //            finish()
 //        }
 
-        String userId = "123";
-
+        String userId = "111";
         msgAdapter = new MsgAdapter(new ArrayList(), userId);
         RecyclerView matchesRV = findViewById(R.id.messagesRV);
         matchesRV.setHasFixedSize(false);
@@ -49,10 +49,15 @@ public class ChatActivity extends AppCompatActivity{
         TextView topNameTV = findViewById(R.id.topNameTV);
         ImageView topPhotoIV = findViewById(R.id.topPhotoIV);
         //user.name
-        topNameTV.setText("Jing");
+        topNameTV.setText(name);
         Glide.with(this)
-                .load(Config.BASE_URL + "PandaRed.jpg")
+                .load(imageUrl)
                 .into(topPhotoIV);
+
+        Message message = new Message("222", "How are you doing?", Calendar.getInstance().getTime().toString());
+        msgAdapter.addMessage(message);
+        RecyclerView messagesRV = findViewById(R.id.messagesRV);
+        messagesRV.smoothScrollToPosition(msgAdapter.getItemCount() - 1);
 
 //        topPhotoIV.setOnClickListener {
 //            startActivity(UserInfoActivity.newIntent(this@ChatActivity, otherUserId))
@@ -61,7 +66,7 @@ public class ChatActivity extends AppCompatActivity{
 
     public void onSend(View view) {
         EditText messageET = findViewById(R.id.messageET);
-        Message message = new Message("123", messageET.getText().toString(), Calendar.getInstance().getTime().toString());
+        Message message = new Message("111", messageET.getText().toString(), Calendar.getInstance().getTime().toString());
         messageET.setText("", TextView.BufferType.EDITABLE);
         msgAdapter.addMessage(message);
         RecyclerView messagesRV = findViewById(R.id.messagesRV);

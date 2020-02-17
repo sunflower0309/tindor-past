@@ -21,7 +21,7 @@ import edu.uci.tindor.R;
 public class MsgAdapter extends RecyclerView.Adapter{
 
     ArrayList<Message> messages;
-    String userId;
+    String userId = "111";
     final static int MESSAGE_CURRENT_USER = 1;
     final static int MESSAGE_OTHER_USER = 2;
 
