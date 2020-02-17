@@ -25,7 +25,7 @@ users_json_path = "./users.json"
 
 def populate_users():
     ip = socket.gethostbyname(socket.gethostname())
-    print("*** IP ***:", ip)
+    print("*** IP ***: {}:{}".format(ip, port))
     for filename in os.listdir("./user_photo"):
         users[filename[:-4]] = {
             "age": "18",
