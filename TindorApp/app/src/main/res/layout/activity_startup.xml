@@ -45,7 +45,7 @@
         android:ems="20"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="Peter" />
 
     <EditText
         android:id="@+id/editText2"

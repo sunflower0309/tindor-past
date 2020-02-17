@@ -22,7 +22,7 @@
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="@dimen/standard_width"
                 android:paddingBottom="8dp"
-                android:src="@drawable/default_pic"/>
+                android:src="@drawable/peter"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameTIL"
@@ -35,7 +35,8 @@
                     android:id="@+id/nameET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_name"/>
+                    android:hint="@string/hint_name"
+                    android:text="Peter" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,7 +51,8 @@
                     android:id="@+id/emailET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_email"/>
+                    android:hint="@string/hint_email"
+                    android:text="peter@uci.edu" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +67,8 @@
                     android:id="@+id/ageET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_age"/>
+                    android:hint="@string/hint_age"
+                    android:text="17" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,7 +101,8 @@
                         android:id="@+id/radioMan1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/hint_man"/>
+                        android:checked="true"
+                        android:text="@string/hint_man" />
 
                     <RadioButton
                         android:id="@+id/radioWoman1"
@@ -145,7 +149,8 @@
                         android:id="@+id/radioWoman2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/hint_woman"/>
+                        android:checked="true"
+                        android:text="@string/hint_woman" />
 
                 </RadioGroup>
 
@@ -175,12 +180,13 @@
         android:id="@+id/progressLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#aaaaaaaa"
         android:gravity="center"
-        android:background="#aaaaaaaa">
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
