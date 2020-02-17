@@ -94,7 +94,7 @@ public class SwipeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!rowItems.isEmpty()) {
-                    Toast.makeText(getActivity(), "Dislike!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Like!", Toast.LENGTH_SHORT).show();
                     frame.getTopCardListener().selectRight();
                 }
             }
@@ -103,7 +103,7 @@ public class SwipeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!rowItems.isEmpty()) {
-                    Toast.makeText(getActivity(), "Like!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Dislike!", Toast.LENGTH_SHORT).show();
                     frame.getTopCardListener().selectLeft();
                 }
             }
