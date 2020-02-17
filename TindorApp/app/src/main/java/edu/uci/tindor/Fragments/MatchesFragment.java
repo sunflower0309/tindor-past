@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import edu.uci.tindor.Adapters.ChatAdapter;
 import edu.uci.tindor.DataModel.Chat;
 import edu.uci.tindor.R;
+import edu.uci.tindor.Utils.Config;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,17 +49,12 @@ public class MatchesFragment extends Fragment {
     }
 
     public void fetchData() {
-        chatAdapter.addElement(
-                new Chat("1", "2", "3", "qiao", "http://192.168.101.12/cuties/5de7450e9e2aa.jpg")
-        );
-        chatAdapter.addElement(
-                new Chat("1", "2", "3", "qiao", "http://192.168.101.12/cuties/5de7450e9e2aa.jpg")
-        );
-        chatAdapter.addElement(
-                new Chat("1", "2", "3", "qiao", "http://192.168.101.12/cuties/5de7450e9e2aa.jpg")
-        );
-        chatAdapter.addElement(
-                new Chat("1", "2", "3", "qiao", "http://192.168.101.12/cuties/5de7450e9e2aa.jpg")
-        );
+        String[] names = {"Adria", "Chloe", "Dana", "Lillian", "Norah", "Rosie"};
+        for(int i = 0; i < 6; ++i) {
+            chatAdapter.addElement(
+                    new Chat("1", "1", "1", names[i],
+                            Config.BASE_URL + "cat_photo/" + i + ".jpg")
+            );
+        }
     }
 }
