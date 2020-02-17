@@ -20,18 +20,29 @@ collection.insert_one({"hello": "world"})
 
 port = 8000
 users = {}
+users_json_path = "./users.json"
 
 
 def populate_users():
-    ip = socket.gethostbyname(socket.gethostname())
-    for filename in os.listdir("./user_photo"):
-        users[filename[:-4]] = { "age": "18", "photo_url": "http://{}:{}/user_photo/{}".format(ip, port, filename)}
+    global users
+    if os.path.exists(users_json_path):
+        with open(users_json_path) as f:
+            users = json.load(f)
+    else:
+        ip = socket.gethostbyname(socket.gethostname())
+        for filename in os.listdir("./user_photo"):
+            users[filename[:-4]] = {
+                "age": "18",
+                "password": "123",
+                "photo_url": "http://{}:{}/user_photo/{}".format(ip, port, filename)}
+        j = json.dumps(users, indent=4)
+        with open(users_json_path, 'w') as f:
+            f.write(j)
 
 
 @app.route('/')
 def hello():
-    name = request.args.get("name", "World")
-    return f'Hello, {escape(name)}!'
+    return "Hello world!"
 
 
 @app.route('/test')
@@ -45,9 +56,21 @@ def all_users():
     return r
 
 
-@app.route('/user_photo/<path:path>')
+@app.route('/user_photo/<path>')
 def user_photo(path):
     return send_from_directory('user_photo', path)
+
+
+@app.route('/cat_photo/<path>')
+def cat_photo(path):
+    return send_from_directory('cat_photo', path)
+
+
+@app.route('/login/<username>/<password>')
+def login(username, password):
+    if username in users and users[username]["password"] == password:
+        return True
+    return False
 
 
 if __name__ == "__main__":
