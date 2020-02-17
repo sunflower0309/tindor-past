@@ -24,6 +24,16 @@ users_json_path = "./users.json"
 
 
 def populate_users():
+    ip = socket.gethostbyname(socket.gethostname())
+    print("*** IP ***:", ip)
+    for filename in os.listdir("./user_photo"):
+        users[filename[:-4]] = {
+            "age": "18",
+            "password": "123",
+            "photo_url": "http://{}:{}/user_photo/{}".format(ip, port, filename)}
+
+
+def populate_users_with_json():
     global users
     if os.path.exists(users_json_path):
         with open(users_json_path) as f:
