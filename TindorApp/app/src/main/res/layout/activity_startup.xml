@@ -3,33 +3,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    android:gravity="center"
     android:orientation="vertical"
+    app:layout_anchorGravity="center"
     tools:context=".StartupActivity">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/tinder" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onLoginClicked"
-        android:text="Login" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/tinder" />
 
-    <Button
-        android:id="@+id/signup"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:singleLine="false"
+            android:text="tindor"
+            android:textColor="#E91E63"
+            android:textSize="100sp" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onSignupClicked"
-        android:text="Signup" />
+        android:ems="20"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName|textPassword"
+        android:text="Name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/login"
+            style="@style/StandardButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onLoginClicked"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/signup"
+            style="@style/StandardButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onSignupClicked"
+            android:text="Signup" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/debugNetTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" />
+
 </LinearLayout>
